@@ -1,6 +1,7 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "../../assets/logo-vertical.png";
 
 export default function Menu() {
   const [menuAberto, setMenuAberto] = useState(false);
@@ -24,7 +25,7 @@ export default function Menu() {
             <motion.img
               whileHover={{ scale: 1.1, rotate: -6 }}
               transition={{ type: "spring", stiffness: 300 }}
-              src="/src/assets/logo-vertical.png"
+              src={logo}
               alt="Logo"
               className="h-14 w-auto md:h-16"
             />

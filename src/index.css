@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cores principais */
+  --cor-primaria: #f57c00;
+  --cor-secundaria: #0d3b66;
+  --cor-destaque: #fca311;
+  --cor-fundo: #fefcf3;
+  --cor-superficie: #ffffff;
+  --cor-neutra: #aaa9a9;
+  --cor-texto: #1e1e1e;
+  --cor-titulo: #0d3b66;
+  --cor-link: #f57c00;
+
+  /* Tipografia */
+  --fonte-titulo: "Poppins", sans-serif;
+  --fonte-corpo: "Inter", sans-serif;
+
+  /* Outros */
+  --sombra-elevacao: 0 4px 8px rgba(0, 0, 0, 0.4);
+}

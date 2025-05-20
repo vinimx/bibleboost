@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import logo from "../../assets/logo-transparente.png";
 
 export default function Rodape() {
   return (
@@ -24,7 +25,7 @@ export default function Rodape() {
         {/* Logo e Nome */}
         <div className="flex items-center gap-3 mb-2 group">
           <motion.img
-            src="/src/assets/logo-transparente.png"
+            src={logo}
             alt="BibleBoost Logo"
             initial={{ scale: 0.7, opacity: 0 }}
             animate={{ scale: 1.25, opacity: 1 }}

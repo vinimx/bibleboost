@@ -265,7 +265,7 @@ export default function EscolherLeitura() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="mt-6 max-w-xl w-full"
+        className="mt-6 w-full px-4 sm:px-6 md:px-8 max-w-4xl mx-auto"
       >
         {carregando ? (
           <motion.div
@@ -284,7 +284,7 @@ export default function EscolherLeitura() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-destaque/10 text-destaque rounded p-4 text-center font-semibold shadow"
+            className="bg-destaque/10 text-destaque rounded-lg p-4 text-center font-semibold shadow mx-4 sm:mx-6"
           >
             {erro}
           </motion.div>
@@ -292,16 +292,16 @@ export default function EscolherLeitura() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-superficie/80 rounded-xl shadow-lg p-6"
+            className="bg-superficie/80 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mx-4 sm:mx-6"
           >
             <motion.h3
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-titulo text-2xl text-primario mb-6 text-center tracking-wide drop-shadow"
+              className="font-titulo text-xl sm:text-2xl md:text-3xl text-primario mb-6 text-center tracking-wide drop-shadow"
             >
               {dados.reference}
             </motion.h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <AnimatePresence>
                 {dados.verses.map((versiculo, index) => (
                   <motion.div
@@ -309,18 +309,18 @@ export default function EscolherLeitura() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="group flex items-start gap-3 px-4 py-3 rounded-lg hover:bg-primario/10 transition"
+                    className="group flex items-start gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-primario/10 transition"
                   >
-                    <span className="font-bold text-primario text-lg min-w-[2.5rem] text-right select-none">
+                    <span className="font-bold text-primario text-base sm:text-lg min-w-[2rem] sm:min-w-[2.5rem] text-right select-none">
                       {versiculo.verse}
                     </span>
-                    <span className="text-base text-titulo leading-relaxed flex-1">
+                    <span className="text-sm sm:text-base md:text-lg text-titulo leading-relaxed flex-1">
                       {versiculo.text}
                     </span>
                     <motion.button
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.9 }}
-                      className="ml-2 text-xl transition"
+                      className="ml-1 sm:ml-2 text-lg sm:text-xl transition opacity-70 hover:opacity-100"
                       title={
                         favoritos.some((fav) => fav.id === versiculo.id)
                           ? "Remover dos favoritos"
@@ -360,7 +360,7 @@ export default function EscolherLeitura() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center text-neutro/70 py-12 text-lg"
+            className="text-center text-neutro/70 py-12 text-base sm:text-lg md:text-xl"
           >
             Selecione um livro e capítulo para começar
           </motion.div>

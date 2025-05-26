@@ -65,8 +65,8 @@ export const useBiblia = () => {
     ]);
   };
 
-  const removerDosFavoritos = (indice) => {
-    setFavoritos((prev) => prev.filter((_, i) => i !== indice));
+  const removerDosFavoritos = (id) => {
+    setFavoritos((prev) => prev.filter((fav) => fav.id !== id));
   };
 
   // Histórico

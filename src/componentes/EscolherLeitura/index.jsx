@@ -303,56 +303,65 @@ export default function EscolherLeitura() {
             </motion.h3>
             <div className="space-y-3 sm:space-y-4">
               <AnimatePresence>
-                {dados.verses.map((versiculo, index) => (
-                  <motion.div
-                    key={versiculo.verse}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="group flex items-start gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-primario/10 transition"
-                  >
-                    <span className="font-bold text-primario text-base sm:text-lg min-w-[2rem] sm:min-w-[2.5rem] text-right select-none">
-                      {versiculo.verse}
-                    </span>
-                    <span className="text-sm sm:text-base md:text-lg text-titulo leading-relaxed flex-1">
-                      {versiculo.text}
-                    </span>
-                    <motion.button
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="ml-1 sm:ml-2 text-lg sm:text-xl transition opacity-70 hover:opacity-100"
-                      title={
-                        favoritos.some((fav) => fav.id === versiculo.id)
-                          ? "Remover dos favoritos"
-                          : "Adicionar aos favoritos"
-                      }
-                      onClick={() => {
-                        const isFavorito = favoritos.some(
-                          (fav) => fav.id === versiculo.id
-                        );
-                        if (isFavorito) {
-                          removerDosFavoritos(versiculo.id);
-                        } else {
-                          adicionarAosFavoritos(versiculo);
-                        }
-                      }}
+                {dados.verses.map((versiculo, index) => {
+                  // Crie um id único para cada versículo
+                  const versiculoId = `${dados.reference}-${versiculo.verse}`;
+                  const isFavorito = favoritos.some(
+                    (fav) => fav.id === versiculoId
+                  );
+
+                  return (
+                    <motion.div
+                      key={versiculoId}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="group flex items-start gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-primario/10 transition"
                     >
-                      {favoritos.some((fav) => fav.id === versiculo.id) ? (
-                        <motion.span
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="text-destaque drop-shadow"
-                        >
-                          ★
-                        </motion.span>
-                      ) : (
-                        <span className="text-neutro/60 group-hover:text-destaque">
-                          ☆
-                        </span>
-                      )}
-                    </motion.button>
-                  </motion.div>
-                ))}
+                      <span className="font-bold text-primario text-base sm:text-lg min-w-[2rem] sm:min-w-[2.5rem] text-right select-none">
+                        {versiculo.verse}
+                      </span>
+                      <span className="text-sm sm:text-base md:text-lg text-titulo leading-relaxed flex-1">
+                        {versiculo.text}
+                      </span>
+                      <motion.button
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="ml-1 sm:ml-2 text-lg sm:text-xl transition opacity-70 hover:opacity-100"
+                        title={
+                          isFavorito
+                            ? "Remover dos favoritos"
+                            : "Adicionar aos favoritos"
+                        }
+                        onClick={() => {
+                          if (isFavorito) {
+                            removerDosFavoritos(versiculoId);
+                          } else {
+                            adicionarAosFavoritos({
+                              ...versiculo,
+                              id: versiculoId,
+                              reference: dados.reference,
+                            });
+                          }
+                        }}
+                      >
+                        {isFavorito ? (
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="text-destaque drop-shadow"
+                          >
+                            ★
+                          </motion.span>
+                        ) : (
+                          <span className="text-neutro/60 group-hover:text-destaque">
+                            ☆
+                          </span>
+                        )}
+                      </motion.button>
+                    </motion.div>
+                  );
+                })}
               </AnimatePresence>
             </div>
           </motion.div>

@@ -4,6 +4,8 @@
   <em>Uma experiência moderna, rápida e envolvente para leitura bíblica online.</em>
 </p>
 
+[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)](#)
+
 ---
 
 ## 🚀 Tecnologias Utilizadas

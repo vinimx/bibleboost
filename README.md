@@ -14,7 +14,7 @@
 - **Vite** — Ferramenta leve e veloz para build e desenvolvimento.
 - **Tailwind CSS** — Estilização utilitária com suporte a variáveis personalizadas (cores, fontes, etc).
 - **Framer Motion** — Animações suaves para melhorar a experiência visual.
-- **Context API + Hooks** — Gerenciamento de estado global (leitura, favoritos, preferências).
+- **Context API + Hooks** — Gerenciamento de estado global (leitura, favoritos).
 - **ESLint** — Padronização e qualidade do código.
 
 ---
@@ -35,10 +35,8 @@ O BibleBoost foi criado para transformar a leitura bíblica em uma atividade mai
 
 - 🔍 **Seleção rápida** de livro e capítulo via modais otimizados.
 - 📘 **Alternância de versões** bíblicas com atualização instantânea do conteúdo.
-- ⭐ **Favoritos** — salve versículos e acesse com facilidade.
 - ↔️ **Navegação contínua** entre capítulos com botões e atalhos.
 - 🎞️ **Animações modernas** para transições e interações (via Framer Motion).
-- 🎨 **Tema personalizado** com suporte a variáveis CSS (cores, fontes e escala).
 
 ---
 
